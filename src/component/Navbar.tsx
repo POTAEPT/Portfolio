@@ -1,19 +1,21 @@
-import style from '../styles/navbar.module.css';
+import styles from '../styles/navbar.module.css';
 
 function Navbar(){
     return(
-        <nav className='style.navbar'>
-                <div className='style.logo'>
+        <nav className={styles.navbar}>
+                <div className={styles.logo}>
                     Portfolio
                 </div>
-                <ul className='style.menu'>
-                    <li> 
-                        <a href=""> HOME</a>
-                    </li>
-                    <li>
-                        <a href="">Project</a>
-                    </li>
+                <ul>
+                        <a href="#home"> Home</a>
+                </ul>
+                <ul>
+                        <a href="#about">About me</a>
+                </ul>
+                <ul>
+                        <a href="#project">Project</a>
                 </ul>
         </nav>
     )
 }
+export default Navbar
