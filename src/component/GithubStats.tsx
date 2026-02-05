@@ -12,8 +12,8 @@ export function GithubStats() {
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <img 
-          src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=transparent&hide_border=true&title_color=1f2328&text_color=636c76&icon_color=1f2328`}
-          alt="GitHub Stats"
+          src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=transparent&hide_border=true&ring=FE9600&fire=FE9600&currStreakNum=FE9600`}
+          alt="GitHub Streak"
           style={{ width: '100%' }}
         />
         <img 

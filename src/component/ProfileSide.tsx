@@ -24,18 +24,18 @@ function ProfileSide() {
            <div className={styles.buttonGroup}>
                 
                 {/* GitHub */}
-                <a href="https://github.com/YourUsername" target="_blank" className={styles.socialButton}>
+                <a href="https://github.com/POTAEPT" target="_blank" className={styles.socialButton}>
                     <FaGithub size={20} />
                     <span>GitHub</span>
                 </a>
 
                 {/*  Devfolio  */}
-                <a href="https://devfolio.co/@YourUsername" target="_blank" className={styles.socialButton}>
+                <a href="https://devfolio.co/@ptt__demo" target="_blank" className={styles.socialButton}>
                     <span>Devfolio</span>
                 </a>
 
                 {/*  Email */}
-                <a href="mailto:your.email@gmail.com" className={styles.socialButton}>
+                <a href="mailto:natthawutlaeme@gmail.com" className={styles.socialButton}>
                     <FaEnvelope size={20} />
                     <span>Email</span>
                 </a>
