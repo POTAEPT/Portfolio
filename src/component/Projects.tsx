@@ -25,9 +25,11 @@ export function Projects() {
         <div className={styles.grid}>
           {projectsData.map((project, index) => (
             <div key={index} className={styles.card}>
-              <div className={styles.imageWrapper}>
-                <img src={project.image} alt={project.title} className={styles.projectImage} />
-              </div>
+              {project.image && (
+                <div className={styles.imageWrapper}>
+                  <img src={project.image} alt={project.title} className={styles.projectImage} />
+                </div>
+              )}
               
               <div className={styles.content}>
                 <h3>{project.title}</h3>

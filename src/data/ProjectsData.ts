@@ -1,7 +1,7 @@
 export interface Project {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   tags: string[];
   status: string;
   githubUrl: string;
@@ -9,19 +9,24 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: 'Analytics Dashboard',
+    title: 'ReliefMesh',
     description: 'Real-time data visualization platform.',
-    image: 'https://images.unsplash.com/photo-1665470909939-959569b20021?auto=format&fit=crop&q=80&w=1080',
-    tags: ['React', 'TypeScript', 'Recharts'],
+    tags: ['React', 'TypeScript','Solidity','CSS'],
     status:'Success',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/POTAEPT/ReliefMesh-UIAteam',
   },
   {
-    title: 'E-Commerce Platform',
+    title: 'LAYING DOWN THE SMALL BRICKS',
     description: 'Online store with payment integration.',
-    image: 'https://images.unsplash.com/photo-1694599048261-a1de00f0117e?auto=format&fit=crop&q=80&w=1080',
-    tags: ['Next.js', 'Stripe', 'PostgreSQL'],
-    status:'In Processes',
-    githubUrl: '#',
+    tags: ['C++', 'Arduino Framework', 'ESP-NOW'],
+    status:'Success',
+    githubUrl: 'https://github.com/POTAEPT/Web3-Student-Club-Showcase',
+  },
+  {
+    title: 'LAYING DOWN THE SMALL BRICKS',
+    description: 'Online store with payment integration.',
+    tags: ['C++', 'Arduino Framework', 'ESP-NOW'],
+    status:'Success',
+    githubUrl: 'https://github.com/POTAEPT/DII-minigame',
   },
 ];
