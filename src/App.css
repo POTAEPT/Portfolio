@@ -1,3 +1,51 @@
-#root {
+/* App.css */
+.layout {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px; 
+  align-items: flex-start; 
+  gap: 24px;
+}
+
+/* Sidebar ฝั่งซ้าย */
+.sidebar {
   width: 100%;
+  max-width: 296px; 
+  flex-shrink: 0;  
+}
+
+/* Main Content ฝั่งขวา */
+.main-content {
+  flex: 1; 
+  min-width: 0; 
+}
+
+/* กล่องเนื้อหาฝั่งขวา */
+.content-box {
+  border: 1px solid #d0d7de; 
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 16px;
+  background-color: #ffffff;
+}
+
+.content-box h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #d0d7de;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .sidebar {
+    max-width: 100%;
+  }
 }
