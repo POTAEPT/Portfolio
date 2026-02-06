@@ -11,16 +11,14 @@ export function GithubStats() {
       </h3>
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        
         <img 
-          src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=transparent&hide_border=true&ring=FE9600&fire=FE9600&currStreakNum=FE9600`}
-          alt="GitHub Streak"
-          style={{ width: '100%' }}
+          src={`https://metrics.lecoq.io/${username}?template=classic&base=header,repositories&languages=1&wakatime=1&config.timezone=Asia%2FBangkok`}
+          alt="Github Metrics"
+          style={{ width: '100%', borderRadius: '8px' }}
         />
-        <img 
-          src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=transparent&hide_border=true&title_color=1f2328&text_color=636c76`} 
-          alt="Top Langs"
-          style={{ width: '100%' }}
-        />
+
+
       </div>
     </div>
   );
