@@ -8,6 +8,7 @@ import { Education } from './component/Education'
 import { Activities } from './component/Activities'
 import { GithubStats } from './component/GithubStats'
 
+
 function App() {
   return (
     <div>
