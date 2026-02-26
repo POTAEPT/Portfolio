@@ -7,7 +7,6 @@ import Navbar from './component/Navbar'
 import { Projects } from './component/Projects'
 import { Education } from './component/Education'
 import { Activities } from './component/Activities'
-import { GithubStats } from './component/GithubStats'
 
 
 function App() {
@@ -15,24 +14,26 @@ function App() {
     <div className="app-shell" id="home">
 
       <Navbar/>
-      <div className="layout">
-        <aside className="sidebar">
+      <div className="flow-layout">
+        <div className="flow-item">
           <ProfileSide/>
+        </div>
+        <div className="flow-item flow-panel" id="about">
+          <AboutMe/>
+        </div>
+        <div className="flow-item flow-panel">
+          <TechStack/>
+        </div>
+        <div className="flow-item">
           <Education/>
+        </div>
+        <div className="flow-item">
           <Activities/>
-        </aside>
-        <main className="main-content">
-          <section className="content-box" id="about">
-            <AboutMe/>
-          </section>
-          <section className="content-box">
-            <TechStack/>
-          </section>
-        </main>
+        </div>
+        <div className="flow-item" id="project">
+          <Projects/>
+        </div>
       </div>
-      <section className="projects-wrap" id="project">
-        <Projects/>
-      </section>
     </div>
   )
 }

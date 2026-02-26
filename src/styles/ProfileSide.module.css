@@ -1,26 +1,94 @@
-.box {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+.hero {
     width: 100%;
-    gap: 16px;
-    padding: 22px;
-    border-radius: 18px;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.55));
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.28);
+    display: grid;
+    grid-template-columns: 0.9fr 1.4fr;
+    gap: 28px;
+    align-items: center;
+    padding: 28px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.78), rgba(15, 23, 42, 0.62));
+    border: 1px solid rgba(59, 130, 246, 0.22);
+    box-shadow: 0 20px 50px rgba(2, 6, 23, 0.32);
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kicker {
+    margin: 0;
+    font-size: 1rem;
+    color: #93c5fd;
+    font-weight: 600;
+}
+
+.content h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    line-height: 1.05;
+    color: #3b82f6;
+    font-weight: 800;
+}
+
+.content h2 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.1vw, 2rem);
+    line-height: 1.25;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.description {
+    margin: 10px 0 0;
+    color: #cbd5e1;
+    line-height: 1.8;
+    max-width: 60ch;
+    font-size: 1.04rem;
+}
+
+.socialRow {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.iconButton {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    background: rgba(2, 6, 23, 0.55);
+    color: #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.iconButton:hover {
+    transform: translateY(-2px);
+    border-color: rgba(96, 165, 250, 0.7);
+    background: rgba(15, 23, 42, 0.78);
+}
+
+.devfolioButton {
+    width: auto;
+    min-width: 110px;
+    padding: 0 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
 
 .image {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
+    width: min(340px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 22px;
     overflow: hidden;
-    border: 2px solid rgba(148, 163, 184, 0.35);
-    margin-bottom: 8px;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.48);
-    z-index: 2;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    justify-self: start;
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.35);
 }
 
 .image img {
@@ -29,79 +97,33 @@
     object-fit: cover;
 }
 
+@media (max-width: 960px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
 
-.name h1 {
-    margin: 0;
-    font-size: 26px;
-    line-height: 1.25;
-    font-weight: 700;
-    color: #f8fafc;
-    text-align: center;
+    .image {
+        width: min(300px, 100%);
+        justify-self: start;
+    }
 }
 
-.nickname {
-    display: block;
-    margin-top: 4px;
-    font-size: 16px;
-    line-height: 24px;
-    color: #bfdbfe;
-    font-weight: 500;
-    text-align: center;
-}
+@media (max-width: 640px) {
+    .hero {
+        padding: 18px;
+        border-radius: 16px;
+    }
 
-.description {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
+    .iconButton {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+    }
 
-.detailItem {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: #f0f0f0;
-}
-
-.icon {
-    color: #636c76;
-    width: 16px;
-    text-align: center;
-}
-
-.buttonGroup {
-    display: flex;
-    flex-direction: column; 
-    gap: 10px;             
-    width: 100%;
-    margin-top: 10px;
-}
-
-
-.socialButton {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    gap: 10px;             
-    
-    padding: 11px 16px;
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(148, 163, 184, 0.25);
-    border-radius: 10px;
-    text-decoration: none;   
-    color: #e2e8f0;
-    font-size: 14px;
-    font-weight: 600;
-    
-    transition: 0.2s all;
-}
-
-.socialButton:hover {
-    background: rgba(30, 41, 59, 0.8);
-    border-color: rgba(96, 165, 250, 0.5);
-    transform: translateY(-2px);
-}
-
-.socialButton:active {
-    transform: translateY(0);   
+    .devfolioButton {
+        width: auto;
+        min-width: 100px;
+        padding: 0 12px;
+    }
 }
