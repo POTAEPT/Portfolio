@@ -6,9 +6,9 @@
     align-items: center;
     padding: 28px;
     border-radius: 20px;
-    background: linear-gradient(180deg, rgba(2, 6, 23, 0.78), rgba(15, 23, 42, 0.62));
-    border: 1px solid rgba(59, 130, 246, 0.22);
-    box-shadow: 0 20px 50px rgba(2, 6, 23, 0.32);
+    background: linear-gradient(180deg, rgba(var(--rgb-slate-950), 0.78), rgba(var(--rgb-slate-900), 0.62));
+    border: 1px solid rgba(var(--rgb-blue-500), 0.22);
+    box-shadow: 0 20px 50px rgba(var(--rgb-slate-950), 0.32);
 }
 
 .content {
@@ -20,7 +20,7 @@
 .kicker {
     margin: 0;
     font-size: 1rem;
-    color: #93c5fd;
+    color: var(--color-blue-300);
     font-weight: 600;
 }
 
@@ -28,7 +28,7 @@
     margin: 0;
     font-size: clamp(2rem, 4vw, 3.6rem);
     line-height: 1.05;
-    color: #3b82f6;
+    color: var(--color-blue-500);
     font-weight: 800;
 }
 
@@ -36,13 +36,13 @@
     margin: 0;
     font-size: clamp(1.1rem, 2.1vw, 2rem);
     line-height: 1.25;
-    color: #94a3b8;
+    color: var(--color-slate-400);
     font-weight: 500;
 }
 
 .description {
     margin: 10px 0 0;
-    color: #cbd5e1;
+    color: var(--color-slate-300);
     line-height: 1.8;
     max-width: 60ch;
     font-size: 1.04rem;
@@ -58,9 +58,9 @@
     width: 52px;
     height: 52px;
     border-radius: 16px;
-    border: 1px solid rgba(59, 130, 246, 0.35);
-    background: rgba(2, 6, 23, 0.55);
-    color: #e2e8f0;
+    border: 1px solid rgba(var(--rgb-blue-500), 0.35);
+    background: rgba(var(--rgb-slate-950), 0.55);
+    color: var(--color-slate-200);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -69,8 +69,8 @@
 
 .iconButton:hover {
     transform: translateY(-2px);
-    border-color: rgba(96, 165, 250, 0.7);
-    background: rgba(15, 23, 42, 0.78);
+    border-color: rgba(var(--rgb-blue-500), 0.7);
+    background: rgba(var(--rgb-blue-700), 0.78);
 }
 
 .devfolioButton {
@@ -86,9 +86,9 @@
     aspect-ratio: 1 / 1;
     border-radius: 22px;
     overflow: hidden;
-    border: 1px solid rgba(148, 163, 184, 0.35);
+    border: 1px solid rgba(var(--rgb-slate-400), 0.35);
     justify-self: start;
-    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.35);
+    box-shadow: 0 16px 40px rgba(var(--rgb-slate-950), 0.35);
 }
 
 .image img {
@@ -96,6 +96,23 @@
     height: 100%;
     object-fit: cover;
 }
+
+.tagContent {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.tagContent span {
+    background: rgba(var(--rgb-blue-500), 0.1); 
+    color: var(--color-blue-300); 
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(var(--rgb-blue-500), 0.2);
+}
+
 
 @media (max-width: 960px) {
     .hero {

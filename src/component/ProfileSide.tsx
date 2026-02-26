@@ -15,6 +15,10 @@ function ProfileSide() {
                 <p className={styles.kicker}>Hi, I&apos;m</p>
                 <h1>Natthawut Laeme</h1>
                 <h2>Full-Stack Developer</h2>
+                <div className={styles.tagContent}>
+                    <span>DevSecOps Explorer</span>
+                    <span>CyberSec Enthusiast</span>
+                </div>
 
                 <p className={styles.description}>
                     I build practical and user-focused web applications from front-end experiences to robust back-end systems.
