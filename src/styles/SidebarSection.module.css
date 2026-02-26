@@ -1,81 +1,87 @@
 .container {
-  padding: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(var(--rgb-slate-400), 0.2);
+  border-radius: 18px;
   margin-top: 14px;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.5));
+  background: linear-gradient(180deg, rgba(var(--rgb-slate-900), 0.72), rgba(var(--rgb-slate-900), 0.52));
+  box-shadow: 0 14px 30px rgba(var(--rgb-slate-950), 0.24);
 }
 
 .title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  letter-spacing: 0.01em;
+}
+
+.title svg {
+  color: var(--color-blue-400);
+  font-size: 0.95rem;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  position: relative;
-  padding-left: 2px;
-}
-
-
-.list::before {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 6px;
-  bottom: 8px;
-  width: 1px;
-  background: rgba(148, 163, 184, 0.32);
+  gap: 14px;
+  padding-left: 0;
 }
 
 
 .item {
-  position: relative;
-  padding-left: 24px;
-  z-index: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--rgb-slate-400), 0.14);
+  background: rgba(var(--rgb-slate-950), 0.24);
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
-.dot {
-  position: absolute;
-  left: 1px;
-  top: 4px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #93c5fd;
-  border: 2px solid #60a5fa;
-  z-index: 2;
-}
-
-.item:first-child .dot {
-  background: #ffffff;
-  border-color: #93c5fd;
+.item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(var(--rgb-blue-500), 0.4);
+  background: rgba(var(--rgb-slate-950), 0.34);
 }
 
 .year {
-  font-size: 12px;
+  font-size: 0.74rem;
   font-weight: 600;
-  color: #94a3b8;
-  margin-bottom: 2px;
+  color: var(--color-blue-300);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .school {
-  font-size: 14px;
-  font-weight: 600;
-  color: #f1f5f9;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.college {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .degree {
-  font-size: 13px;
-  color: #cbd5e1;
-  margin: 0;
-  line-height: 1.4;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .item {
+    padding: 10px;
+  }
 }
