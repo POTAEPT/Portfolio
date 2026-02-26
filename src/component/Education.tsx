@@ -8,7 +8,7 @@ export function Education() {
         <FaGraduationCap /> Education
       </h3>
       
-      <div>
+      <div className={styles.list}>
         <div className={styles.item}>
           <div className={styles.dot}></div>
           <div className={styles.year}>2023 - Present</div>

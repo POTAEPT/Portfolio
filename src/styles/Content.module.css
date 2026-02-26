@@ -1,0 +1,22 @@
+.wrapper {
+	width: 100%;
+}
+
+.wrapper h2 {
+	margin: 0 0 14px;
+	font-size: 1.45rem;
+	font-weight: 700;
+	color: #f8fafc;
+	letter-spacing: 0.02em;
+}
+
+.wrapper p {
+	margin: 0 0 14px;
+	color: #cbd5e1;
+	line-height: 1.78;
+	font-size: 1rem;
+}
+
+.wrapper p:last-child {
+	margin-bottom: 0;
+}

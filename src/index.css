@@ -14,8 +14,19 @@
 body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
-  background: linear-gradient(to bottom right, #172554, #0f172a, #1e3a8a); 
-  background-attachment: fixed; 
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(59, 130, 246, 0.22), transparent 40%),
+    radial-gradient(circle at 92% 16%, rgba(168, 85, 247, 0.2), transparent 38%),
+    linear-gradient(165deg, #020617 0%, #0f172a 45%, #111827 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
   min-height: 100vh;
 }
 

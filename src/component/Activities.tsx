@@ -21,10 +21,10 @@ export function Activities() {
         <FaAward /> Activities
       </h3>
       
-      <div>
+      <div className={styles.list}>
         {events.map((event, index) => (
           <div key={index} className={styles.item}>
-            <div className={styles.dot} style={{ borderColor: index === 0 ? '#ffffff' : '#ffffff', background: index === 0 ? '#ffffff' : '#ffffff' }}></div>
+            <div className={styles.dot}></div>
             <div className={styles.year}>{event.year}</div>
             <h4 className={styles.school}>{event.name}</h4>
             <p className={styles.degree}>{event.role}</p>

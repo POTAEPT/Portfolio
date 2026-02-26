@@ -13,24 +13,22 @@ function ProfileSide() {
             </div>
 
             {/*Name Section */}
-            <div className={styles.profile}>
-                <div className={styles.name}>
-                    <h1>Natthawut Laeme</h1>
-                    <span className={styles.nickname}>Full-Stack Deverloper</span>
-                </div>
+             <div className={styles.name}>
+                <h1>Natthawut Laeme</h1>
+                     <span className={styles.nickname}>Full-Stack Developer</span>
             </div>
 
            {/* Contact / Social Link */}
            <div className={styles.buttonGroup}>
                 
                 {/* GitHub */}
-                <a href="https://github.com/POTAEPT" target="_blank" className={styles.socialButton}>
+                <a href="https://github.com/POTAEPT" target="_blank" rel="noreferrer" className={styles.socialButton}>
                     <FaGithub size={20} />
                     <span>GitHub</span>
                 </a>
 
                 {/*  Devfolio  */}
-                <a href="https://devfolio.co/@ptt__demo" target="_blank" className={styles.socialButton}>
+                <a href="https://devfolio.co/@ptt__demo" target="_blank" rel="noreferrer" className={styles.socialButton}>
                     <span>Devfolio</span>
                 </a>
 
