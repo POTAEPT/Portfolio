@@ -2,13 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 50%;
   padding: 16px 24px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  margin-top: 10px;
+  gap: 50px;
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(10px);
-  background: rgba(2, 6, 23, 0.62);
+  border-radius: 30px 30px 10px 10px;
+  border-bottom: 0.8px solid rgba(59, 130, 246, 0.12);
+  background: rgba(128, 128, 128, 0.20);
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.10), 0 4px 6px -4px rgba(37, 99, 235, 0.05);
 }
 
 .logo {
@@ -32,13 +36,14 @@
   text-decoration: none;
   font-weight: 500;
   padding: 8px 10px;
-  border-radius: 8px;
+  border-bottom: 2px solid var(--color-blue-300);
+  border-radius:4px ;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .navLinks a:hover {
-  color: #ffffff;
-  background-color: rgba(148, 163, 184, 0.14);
+  color: var(--color-blue-500);
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 @media (max-width: 640px) {

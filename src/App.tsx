@@ -12,8 +12,8 @@ import { Activities } from './component/Activities'
 function App() {
   return (
     <div className="app-shell" id="home">
-
-      <Navbar/>
+      
+        <Navbar/>
       <div className="flow-layout">
         <div className="flow-item">
           <ProfileSide/>

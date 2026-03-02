@@ -7,7 +7,6 @@ function Navbar() {
 
       <ul className={styles.navLinks}>
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About me</a></li>
         <li><a href="#project">Project</a></li>
       </ul>
     </nav>
