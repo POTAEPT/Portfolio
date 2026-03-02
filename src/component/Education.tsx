@@ -10,7 +10,7 @@ export function Education() {
       
       <div className={styles.list}>
         <div className={styles.item}>
-          <div className={styles.year}>2023 - Present</div>
+          <div className={styles.year}>2025 - Present</div>
           <h4 className={styles.school}>Chiang Mai University</h4>
           <p className={styles.degree}>College of Art Media and Technology (CAMT), Digital Industry Integration(DII)</p>
         </div>
