@@ -67,9 +67,9 @@ function ProfileSide() {
                         <FaEnvelope size={18} />
                     </a>
 
-                    <span className={`${styles.iconButton} ${styles.devfolioButton}`} aria-label="Devfolio">
+                    <a href="https://devfolio.co/@ptt__demo" target="_blank" rel="noreferrer" className={`${styles.iconButton} ${styles.devfolioButton}`} aria-label="Devfolio">
                         <span>Devfolio</span>
-                    </span>
+                    </a>
 
                 </motion.div>
             </motion.div>

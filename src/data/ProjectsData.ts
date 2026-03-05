@@ -25,7 +25,7 @@ export const projectsData: Project[] = [
   {
     title: 'DII-MINI GAME',
     description: 'DII Minigame Platform is a multiplayer minigame platform developed with TypeScript and Firebase for CAMT OPEN HOUSE event. It features three main games: Debug Game (finding code errors), Logic Game (solving logical problems), and Typing Game (testing code typing speed). Designed to give participants hands-on experience in various software development roles (Frontend, Backend, UX/UI Designer, QA Tester, Data Scientist) through a real-time multiplayer system powered by Firebase Realtime Database and Firestore for seamless Host-Client data synchronization. The platform emphasizes gamification to introduce IT career paths and skills to prospective students in an engaging and interactive way.',
-    tags: ['C++', 'Arduino Framework', 'ESP-NOW'],
+    tags: ['HTML', 'CSS', 'TypeScript'],
     status:'Success',
     githubUrl: 'https://github.com/POTAEPT/DII-minigame',
   },
