@@ -1,26 +1,32 @@
 /* App.css */
+
 .app-shell {
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  /*scroll-snap-type: y mandatory; */
+  scroll-behavior: smooth;
+}
+
+.snap-section {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
- align-items: center;
+  justify-content: flex-start; 
+  align-items: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
 }
 
-.flow-layout {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 28px 24px 56px;
-  gap: 18px;
-}
-
-.flow-item {
-  width: 100%;
-}
 
 .flow-panel {
+  width: 100%;
+  max-width: 960px;
   border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: 18px;
   padding: 24px;
@@ -30,13 +36,13 @@
 }
 
 
-@media (max-width: 768px) {
-  .flow-layout {
-    padding: 18px 14px 30px;
-  }
+.snap-container::-webkit-scrollbar {
+  display: none;
+}
 
-  .flow-panel {
-    border-radius: 14px;
-    padding: 18px;
+@media (max-width: 768px) {
+  .snap-section {
+    padding: 60px 14px;
+    scroll-snap-align: none; 
   }
 }

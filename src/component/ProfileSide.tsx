@@ -1,4 +1,5 @@
 import { FaGithub, FaEnvelope } from "react-icons/fa";
+import { Education } from './Education'
 import { motion, type Variants } from "motion/react";
 import styles from '../styles/ProfileSide.module.css';
 import profilePicture from '../assets/Profile.png';
@@ -12,7 +13,6 @@ const containerVariants: Variants = {
         },
     },
 };
-
 const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -21,7 +21,14 @@ const itemVariants: Variants = {
         transition: { type: "spring", stiffness: 120, damping: 15 }
     },
 };
-
+const aboutItemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: "easeOut" }
+    },
+};
 const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8, rotate: -5 },
     visible: {
@@ -38,14 +45,17 @@ function ProfileSide() {
             className={styles.hero}
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.1 }}
         >
+            {/* ส่วนบน: รูปภาพ */}
             <motion.div className={styles.image} variants={imageVariants}>
                 <img src={profilePicture} alt="Natthawut Laeme" />
             </motion.div>
 
+            {/* ส่วนบนขวา: ข้อมูลพื้นฐาน */}
             <motion.div className={styles.content} variants={containerVariants}>
-                <motion.p className={styles.kicker} variants={itemVariants}>Hi, I&apos;m</motion.p>
+                <motion.p className={styles.kicker} variants={itemVariants}>Hi, I'm</motion.p>
                 <motion.h1 variants={itemVariants}>Natthawut Laeme</motion.h1>
                 <motion.h2 variants={itemVariants}>Full-Stack Developer</motion.h2>
                 <motion.div className={styles.tagContent} variants={itemVariants}>
@@ -55,22 +65,23 @@ function ProfileSide() {
 
                 <motion.p className={styles.description} variants={itemVariants}>
                     I build practical and user-focused web applications from front-end experiences to robust back-end systems.
-                    I enjoy learning new technologies and turning ideas into real products.
                 </motion.p>
-
+                <motion.div variants={itemVariants}>
+                    <Education/>
+                </motion.div>
+                
                 <motion.div className={styles.socialRow} variants={itemVariants}>
-                    <a href="https://github.com/POTAEPT" target="_blank" rel="noreferrer" className={styles.iconButton} aria-label="GitHub">
-                        <FaGithub size={18} />
-                    </a>
+                    {/* ... ปุ่ม Social เดิมของเต้ ... */}
+                </motion.div>
+            </motion.div>
 
-                    <a href="mailto:natthawutlaeme@gmail.com" className={styles.iconButton} aria-label="Email">
-                        <FaEnvelope size={18} />
-                    </a>
-
-                    <a href="https://devfolio.co/@ptt__demo" target="_blank" rel="noreferrer" className={`${styles.iconButton} ${styles.devfolioButton}`} aria-label="Devfolio">
-                        <span>Devfolio</span>
-                    </a>
-
+            {/* ส่วนล่าง: About Me (ที่เต้อยากให้ยาวลงไป) */}
+            <motion.div className={styles.aboutFullWidth} variants={containerVariants}>
+                <motion.h3 variants={aboutItemVariants}>About Me</motion.h3>
+                <motion.div className={styles.aboutText} variants={aboutItemVariants}>
+                    <p>I am a Digital Industry Integration student at Chiang Mai University who enjoys building systems from the ground up until they are fully functional. Whether it’s designing user-friendly Front-end interfaces or architecting robust Back-end structures, I find joy in the challenge of making every component work together seamlessly.
+                    Beyond that, I am interested in other fields and have started exploring Cyber Security, IoT, and Web3. I love pushing my own limits.
+                    For me, coding is a fun and never-ending learning journey. I am currently enjoying developing various projects while mastering new skills at the same time.</p>
                 </motion.div>
             </motion.div>
         </motion.section>

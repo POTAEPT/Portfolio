@@ -1,17 +1,12 @@
 .container {
-  padding: 20px;
-  border: 1px solid rgba(var(--rgb-slate-400), 0.2);
-  border-radius: 18px;
   margin-top: 14px;
-  background: linear-gradient(180deg, rgba(var(--rgb-slate-900), 0.72), rgba(var(--rgb-slate-900), 0.52));
-  box-shadow: 0 14px 30px rgba(var(--rgb-slate-950), 0.24);
 }
 
 .title {
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -32,17 +27,7 @@
 
 
 .item {
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(var(--rgb-slate-400), 0.14);
-  background: rgba(var(--rgb-slate-950), 0.24);
-  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-}
-
-.item:hover {
-  transform: translateY(-1px);
-  border-color: rgba(var(--rgb-blue-500), 0.4);
-  background: rgba(var(--rgb-slate-950), 0.34);
+  padding: 0px;
 }
 
 .year {
@@ -55,9 +40,9 @@
 }
 
 .school {
-  font-size: 0.95rem;
+  font-size: 0.84rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   margin: 0;
 }
 

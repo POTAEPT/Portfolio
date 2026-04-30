@@ -1,14 +1,16 @@
+/* src/styles/ProfileSide.module.css */
+
 .hero {
     width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;  
+    height: 100%;
+    max-height: 980px;
+    
     display: grid;
     grid-template-columns: 0.9fr 1.4fr;
-    gap: 28px;
+    gap: 20px;
     align-items: center;
-    padding: 28px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, rgba(var(--rgb-slate-950), 0.78), rgba(var(--rgb-slate-900), 0.62));
-    border: 1px solid rgba(var(--rgb-blue-500), 0.22);
-    box-shadow: 0 20px 50px rgba(var(--rgb-slate-950), 0.32);
 }
 
 .content {
@@ -143,4 +145,25 @@
         min-width: 100px;
         padding: 0 12px;
     }
+}
+
+/* 🚩 จุดนี้แหละครับที่ทำให้มันกว้างออกไปทางขวา */
+.aboutFullWidth {
+    grid-column: 1 / -1; /* สั่งให้กล่องนี้ ขยายเต็มความกว้างตั้งแต่ซ้ายสุดไปขวาสุด */
+    margin-top: 1px;    /* เพิ่มระยะห่างจากส่วนบนนิดนึง */
+    width: 100%;
+}
+
+.aboutFullWidth h3 {
+    font-size: 1.5rem;
+    color: var(--color-blue-300);
+    margin-bottom: 12px;
+}
+
+.aboutText p {
+    color: var(--color-slate-300);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    max-width: 100%; /* ให้ข้อความไหลไปทางขวาได้เต็มที่ */
 }

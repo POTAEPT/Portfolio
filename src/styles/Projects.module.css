@@ -30,7 +30,6 @@
 
 .grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
   gap: 1.3rem;
 }
@@ -119,6 +118,11 @@
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tagsWrapper {
