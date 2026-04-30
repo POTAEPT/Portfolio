@@ -24,21 +24,21 @@ function TechStack() {
   // เปลี่ยนมาใช้ className ของ Devicon (อย่าลืมเติมคำว่า colored จะได้มีสีสวยๆ)
   const proficient = {
     TechStack: [
-      { name: "React", iconPath: "/public/icons/Library/React_dark.svg" },
-      { name: "TypeScript", iconPath: "/public/icons/Language/typescript.svg" },
-      { name: "Vite", iconPath:"/public/icons/Library/vite.svg" },
-      { name: "HTML5", iconPath: "/public/icons/Language/html5.svg" },
-      { name: "CSS3", iconPath: "/public/icons/Language/css.svg" },
-      { name: "Java", iconPath: "/public/icons/Language/java.svg" },
-      { name: "MySQL", iconPath: "/public/icons/Library/React_dark.svg" },
+      { name: "React", iconPath: "/icons/library/React_dark.svg" },
+      { name: "TypeScript", iconPath: "/icons/language/typescript.svg" },
+      { name: "Vite", iconPath:"/icons/library/vite.svg" },
+      { name: "HTML5", iconPath: "/icons/language/html5.svg" },
+      { name: "CSS3", iconPath: "/icons/language/css.svg" },
+      { name: "Java", iconPath: "/icons/language/java.svg" },
+      { name: "MySQL", iconPath: "/icons/database/MySQL_dark.svg" },
       
 
     ],
     Tools: [
-      { name: "Git", iconPath: "/public/icons/Tool/git.svg" },
-      { name: "Postman", iconPath: "/public/icons/Tool/postman.svg" },
-      { name: "Figma", iconPath: "/public/icons/Tool/figma.svg" },
-      { name: "Docker", iconPath: "/public/icons/Tool/docker.svg"},
+      { name: "Git", iconPath: "/icons/tool/git.svg" },
+      { name: "Postman", iconPath: "/icons/tool/postman.svg" },
+      { name: "Figma", iconPath: "/icons/tool/figma.svg" },
+      { name: "Docker", iconPath: "/icons/tool/docker.svg"},
     ]
   };
 
