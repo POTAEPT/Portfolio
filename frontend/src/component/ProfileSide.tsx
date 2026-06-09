@@ -1,4 +1,3 @@
-import { FaGithub, FaEnvelope } from "react-icons/fa";
 import { Education } from './Education'
 import { motion, type Variants } from "motion/react";
 import styles from '../styles/ProfileSide.module.css';

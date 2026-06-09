@@ -4,7 +4,6 @@ import ProfileSide from './component/ProfileSide'
 import TechStack from './component/TechStack'
 import Navbar from './component/Navbar'
 import { Projects } from './component/Projects'
-import { Activities } from './component/Activities'
 
 function App() {
   return (
