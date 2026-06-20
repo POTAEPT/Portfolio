@@ -11,7 +11,7 @@ export const projectsData: Project[] = [
   {
     title: 'ReliefMesh',
     description: 'ReliefMesh is an offline-first, peer-to-peer (P2P) disaster management platform. It allows victims to broadcast SOS signals that hop between devices without needing a central server. Simultaneously, it integrates Ethereum Smart Contracts to enable direct, transparent, and fee-free financial aid from donors to victims.',
-    tags: ['React', 'TypeScript','Solidity','CSS'],
+    tags: ['React', 'TypeScript','CSS'],
     status:'Success',
     githubUrl: 'https://github.com/POTAEPT/ReliefMesh-UIAteam',
   },
