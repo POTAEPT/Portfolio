@@ -1,0 +1,59 @@
+
+services:
+  # 1. ตู้ฐานข้อมูล MySQL
+  db:
+    image: mysql:8.0
+    container_name: portfolio_db_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_here
+      MYSQL_DATABASE: portfolio_db
+      MYSQL_USER: deimos_user
+      MYSQL_PASSWORD: user_password_here
+    ports:
+      - "3306:3306" # เปิดพอร์ตไว้เผื่อเต้ใช้โปรแกรมในเครื่องส่องดู Data
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - portfolio_network
+
+  # 2. ตู้หลังบ้าน Node.js + Express
+  backend:
+    build: ./backend             # สั่งให้ Docker เดินเข้าไปบิวด์โค้ดในโฟลเดอร์ backend
+    container_name: portfolio_backend
+    restart: always
+    ports:
+      - "5000:5000"              # เปิดพอร์ตให้หน้าบ้านวิ่งมายิง API
+    environment:
+      - PORT=5000
+      - DB_HOST=db               # คุยกับตู้ db ผ่านระบบเน็ตเวิร์กภายในของ Docker
+      - DB_PORT=3306
+      - DB_USER=deimos_user
+      - DB_PASSWORD=user_password_here
+      - DB_NAME=portfolio_db
+    depends_on:
+      - db                       # รอให้ฐานข้อมูลพร้อมทำงานก่อน ค่อยเปิด API
+    networks:
+      - portfolio_network
+
+  # 3. ตู้หน้าบ้าน React + Vite (สำหรับรันเทสในเครื่อง)
+  frontend:
+    build: ./frontend            # สั่งให้ Docker เดินเข้าไปบิวด์โค้ดในโฟลเดอร์ frontend
+    container_name: portfolio_frontend
+    restart: always
+    ports:
+      - "5173:5173"              # พอร์ตมาตรฐานของ Vite
+    environment:
+      - VITE_API_URL=http://localhost:5000/api # บอกหน้าบ้านโลคอลให้วิ่งมาหาหลังบ้านพอร์ต 5000
+    depends_on:
+      - backend                  # รอให้หลังบ้านสตาร์ทเสร็จก่อน ค่อยเปิดหน้าบ้าน
+    networks:
+      - portfolio_network
+
+# ระบบแชร์ทรัพยากรร่วมกันในตึก
+volumes:
+  mysql_data:                    # พื้นที่เก็บข้อมูลฐานข้อมูลอย่างถาวร
+
+networks:
+  portfolio_network:             # วงแลนภายในอพาร์ตเมนต์ ให้ทั้ง 3 คอนเทนเนอร์คุยกันได้
+    driver: bridge
