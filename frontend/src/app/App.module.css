@@ -1,0 +1,11 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--port-bg-primary);
+  color: var(--port-text-primary);
+  font-family: var(--port-font-sans);
+  transition: background-color var(--port-transition), color var(--port-transition);
+}
+
+.main {
+  width: 100%;
+}

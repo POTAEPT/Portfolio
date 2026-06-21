@@ -1,0 +1,233 @@
+.projects {
+  padding: 6rem 1.5rem;
+  background-color: var(--port-bg-secondary);
+  border-top: 1px solid var(--port-border-subtle);
+  border-bottom: 1px solid var(--port-border-subtle);
+}
+
+.inner {
+  max-width: var(--port-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--port-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--port-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.labelNum {
+  color: var(--port-accent);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heading {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--port-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: 0.975rem;
+  color: var(--port-text-secondary);
+  max-width: 60ch;
+}
+
+/* ── Project grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ── Project card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  background-color: var(--port-bg-card);
+  border: 1px solid var(--port-border);
+  border-radius: 12px;
+  transition: border-color var(--port-transition), box-shadow var(--port-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--port-accent),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--port-transition);
+}
+
+.card:hover {
+  border-color: var(--port-accent);
+  box-shadow: var(--port-shadow-md), 0 0 0 1px var(--port-accent-glow);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.highlight {
+  border-color: var(--port-border);
+  background: linear-gradient(
+    135deg,
+    var(--port-bg-card),
+    var(--port-accent-dim)
+  );
+}
+
+/* ── Card top row ── */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: var(--port-accent-dim);
+  color: var(--port-accent);
+  flex-shrink: 0;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cardLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  color: var(--port-text-muted);
+  border: 1px solid var(--port-border-subtle);
+  text-decoration: none;
+  transition: color var(--port-transition),
+              border-color var(--port-transition),
+              background-color var(--port-transition);
+}
+
+.cardLink:hover {
+  color: var(--port-accent);
+  border-color: var(--port-accent);
+  background-color: var(--port-accent-glow);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--port-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.cardShort {
+  font-size: 0.82rem;
+  font-family: var(--port-font-mono);
+  color: var(--port-accent);
+  font-weight: 500;
+}
+
+.cardDesc {
+  font-size: 0.875rem;
+  color: var(--port-text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ── Tags ── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-family: var(--port-font-mono);
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  background-color: var(--port-bg-tag);
+  color: var(--port-text-secondary);
+  border: 1px solid var(--port-border-subtle);
+  border-radius: 4px;
+  transition: background-color var(--port-transition), color var(--port-transition);
+}
+
+.card:hover .tag {
+  background-color: var(--port-accent-dim);
+  color: var(--port-accent);
+  border-color: transparent;
+}
+
+/* ── More CTA ── */
+.moreCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--port-border);
+  border-radius: 8px;
+  color: var(--port-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--port-transition),
+              border-color var(--port-transition),
+              background-color var(--port-transition);
+}
+
+.moreLink:hover {
+  color: var(--port-accent);
+  border-color: var(--port-accent);
+  background-color: var(--port-accent-glow);
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

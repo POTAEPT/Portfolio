@@ -1,0 +1,169 @@
+/* =====================================================
+   PORTFOLIO DESIGN SYSTEM
+   Light Mode  →  :root
+   Dark Mode   →  [data-theme="dark"]
+
+   How it works:
+   - App.tsx stores isDark in React state (default: true)
+   - On every isDark change, useEffect calls:
+       document.documentElement.setAttribute('data-theme', 'dark' | 'light')
+   - Because [data-theme="dark"] is on the <html> element,
+     CSS custom properties cascade into every child.
+   - All component CSS Modules reference var(--port-*) tokens,
+     so they automatically re-skin when the attribute changes.
+   - localStorage persists the preference across sessions.
+===================================================== */
+
+/* ── Light Mode (default) ── */
+:root {
+  /* Backgrounds */
+  --port-bg-primary:    #f0f2f5;
+  --port-bg-secondary:  #ffffff;
+  --port-bg-card:       #ffffff;
+  --port-bg-terminal:   #f6f8fa;
+  --port-bg-tag:        #edf2f7;
+
+  /* Text */
+  --port-text-primary:  #0d1117;
+  --port-text-secondary:#57606a;
+  --port-text-muted:    #8c959f;
+  --port-text-inverse:  #ffffff;
+
+  /* Accent — terminal green */
+  --port-accent:        #1a7f4b;
+  --port-accent-dim:    #d4f1e0;
+  --port-accent-glow:   rgba(26, 127, 75, 0.15);
+
+  /* Secondary accent — electric blue */
+  --port-blue:          #0969da;
+  --port-purple:        #8250df;
+  --port-cyan:          #0598c9;
+
+  /* Terminal */
+  --port-term-prompt:   #1a7f4b;
+  --port-term-text:     #0d1117;
+  --port-term-dim:      #57606a;
+  --port-term-bg:       #f6f8fa;
+  --port-term-border:   #d0d7de;
+  --port-term-header:   #e8ecef;
+
+  /* Borders */
+  --port-border:        #d0d7de;
+  --port-border-subtle: #eaeef2;
+
+  /* Shadows */
+  --port-shadow-sm:     0 1px 3px rgba(27, 31, 36, 0.10);
+  --port-shadow-md:     0 4px 16px rgba(27, 31, 36, 0.12);
+  --port-shadow-lg:     0 8px 32px rgba(27, 31, 36, 0.14);
+  --port-shadow-card:   0 2px 8px rgba(27, 31, 36, 0.08);
+
+  /* Navbar */
+  --port-nav-bg:        rgba(240, 242, 245, 0.85);
+  --port-nav-border:    #d0d7de;
+
+  /* Typography */
+  --port-font-sans:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --port-font-mono:     'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Transitions */
+  --port-ease:          cubic-bezier(0.4, 0, 0.2, 1);
+  --port-transition:    0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --port-max-width:     1100px;
+  --port-nav-height:    64px;
+}
+
+/* ── Dark Mode ── */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --port-bg-primary:    #0c0d12;
+  --port-bg-secondary:  #161b22;
+  --port-bg-card:       #1c2128;
+  --port-bg-terminal:   #010409;
+  --port-bg-tag:        #1c2128;
+
+  /* Text */
+  --port-text-primary:  #e6edf3;
+  --port-text-secondary:#8b949e;
+  --port-text-muted:    #6e7681;
+  --port-text-inverse:  #0d1117;
+
+  /* Accent — neon green */
+  --port-accent:        #007acc;
+  --port-accent-dim:    #162820;
+  --port-accent-glow:   rgba(63, 185, 80, 0.18);
+
+  /* Secondary accent */
+  --port-blue:          #58a6ff;
+  --port-purple:        #bc8cff;
+  --port-cyan:          #39c5cf;
+
+  /* Terminal */
+  --port-term-prompt:   #007acc;
+  --port-term-text:     #e6edf3;
+  --port-term-dim:      #8b949e;
+  --port-term-bg:       #010409;
+  --port-term-border:   #30363d;
+  --port-term-header:   #1c2128;
+
+  /* Borders */
+  --port-border:        #30363d;
+  --port-border-subtle: #21262d;
+
+  /* Shadows */
+  --port-shadow-sm:     0 1px 3px rgba(1, 4, 9, 0.5);
+  --port-shadow-md:     0 4px 16px rgba(1, 4, 9, 0.5);
+  --port-shadow-lg:     0 8px 32px rgba(1, 4, 9, 0.6);
+  --port-shadow-card:   0 2px 8px rgba(1, 4, 9, 0.4);
+
+  /* Navbar */
+  --port-nav-bg:        rgba(13, 17, 23, 0.85);
+  --port-nav-border:    #30363d;
+}
+
+/* ── Global Resets ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--port-nav-height);
+}
+
+body {
+  font-family: var(--port-font-sans);
+  background-color: var(--port-bg-primary);
+  color: var(--port-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--port-transition), color var(--port-transition);
+}
+
+::selection {
+  background-color: var(--port-accent);
+  color: var(--port-bg-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--port-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--port-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--port-text-muted);
+}

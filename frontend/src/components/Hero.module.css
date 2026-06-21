@@ -1,0 +1,416 @@
+/*
+  Hero.module.css
+  ───────────────
+  ALL color values come from CSS custom properties defined in portfolio.css.
+  No hardcoded hex values — the component re-skins automatically when
+  [data-theme="dark"] is toggled on <html>.
+*/
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  padding-top: var(--port-nav-height);
+  overflow: hidden;
+  background-color: var(--port-bg-primary);
+}
+
+/* Subtle dot-grid background */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--port-border) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Radial vignette over the grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    transparent 40%,
+    var(--port-bg-primary) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: var(--port-max-width);
+  margin: 0 auto;
+}
+
+/* ── Left: text content ── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--port-font-mono);
+  font-size: 0.9rem;
+  color: var(--port-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.promptChar {
+  color: var(--port-accent);
+  font-weight: 600;
+}
+
+.name {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--port-text-primary);
+  letter-spacing: -0.03em;
+}
+
+.nameHighlight {
+  color: var(--port-accent);
+  position: relative;
+}
+
+.nameHighlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--port-accent);
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+/* ── Avatar Profile ── */
+.avatarWrapper {
+  margin-bottom: 1rem; 
+}
+
+.avatar {
+  width: 120px; 
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--port-accent); 
+  object-fit: cover;
+  box-shadow: 0 4px 12px var(--port-accent-glow); 
+  transition: transform var(--port-transition), box-shadow var(--port-transition);
+}
+
+.avatar:hover {
+  transform: translateY(-4px); 
+  box-shadow: 0 6px 16px var(--port-accent-glow);
+}
+
+/* Role cycling */
+.roleRow {
+  height: 2rem;
+  overflow: hidden;
+}
+
+.role {
+  display: inline-block;
+  font-family: var(--port-font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--port-blue);
+  background-color: var(--port-bg-tag);
+  border: 1px solid var(--port-border);
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.roleVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.roleHidden {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: var(--port-text-secondary);
+  line-height: 1.7;
+  max-width: 44ch;
+}
+
+.tagline strong {
+  color: var(--port-text-primary);
+  font-weight: 600;
+}
+
+/* ── CTA buttons ── */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.4rem;
+  background-color: var(--port-accent);
+  color: var(--port-bg-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid var(--port-accent);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color var(--port-transition);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--port-accent-glow);
+}
+
+.btnPrimary:active {
+  transform: translateY(0);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.4rem;
+  background-color: transparent;
+  color: var(--port-text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid var(--port-border);
+  transition: border-color var(--port-transition),
+              color var(--port-transition),
+              box-shadow var(--port-transition),
+              transform 0.18s ease;
+}
+
+.btnSecondary:hover {
+  border-color: var(--port-accent);
+  color: var(--port-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--port-accent-glow);
+}
+
+/* ── Social row ── */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--port-border);
+  border-radius: 8px;
+  color: var(--port-text-secondary);
+  text-decoration: none;
+  transition: color var(--port-transition),
+              border-color var(--port-transition),
+              background-color var(--port-transition),
+              transform 0.18s ease;
+}
+
+.socialLink:hover {
+  color: var(--port-accent);
+  border-color: var(--port-accent);
+  background-color: var(--port-accent-glow);
+  transform: translateY(-2px);
+}
+
+.socialDivider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--port-border);
+  margin: 0 0.25rem;
+}
+
+.availBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: var(--port-text-muted);
+  font-family: var(--port-font-mono);
+}
+
+.availDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--port-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--port-accent-glow); }
+  50%       { box-shadow: 0 0 0 5px transparent; }
+}
+
+/* ── Terminal window ── */
+.terminal {
+  background-color: var(--port-term-bg);
+  border: 1px solid var(--port-term-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--port-shadow-lg);
+  font-family: var(--port-font-mono);
+  font-size: 0.85rem;
+}
+
+.termHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background-color: var(--port-term-header);
+  border-bottom: 1px solid var(--port-term-border);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.termTitle {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--port-term-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.termBody {
+  padding: 1.25rem 1.5rem 1.5rem;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.termLine {
+  display: flex;
+  align-items: baseline;
+  gap: 0.1rem;
+  line-height: 1.55;
+}
+
+.termPrompt {
+  color: var(--port-term-prompt);
+  font-weight: 600;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+}
+
+.termCmd {
+  color: var(--port-term-text);
+}
+
+.termOut {
+  color: var(--port-term-dim);
+  padding-left: 0.5rem;
+}
+
+.cursor {
+  color: var(--port-term-prompt);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Scroll hint ── */
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-family: var(--port-font-mono);
+  letter-spacing: 0.1em;
+  color: var(--port-text-muted);
+  text-transform: uppercase;
+}
+
+.scrollArrow {
+  font-size: 1.1rem;
+  display: block;
+  color: var(--port-accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .hero {
+    min-height: unset;
+    padding-top: calc(var(--port-nav-height) + 2rem);
+    padding-bottom: 4rem;
+  }
+  .scrollHint {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
