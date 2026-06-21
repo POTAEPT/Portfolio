@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub} from 'react-icons/fa';
 import { FiArrowRight, FiMail, FiTerminal } from 'react-icons/fi';
 import styles from './Hero.module.css';
 

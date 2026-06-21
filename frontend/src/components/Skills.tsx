@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   SiReact, SiTypescript, SiPython,
-  SiPostgresql, SiDocker, SiKubernetes,
-  SiTerraform, SiGit, SiLinux,SiVite, SiHtml5, 
+  SiPostgresql, SiDocker, 
+  SiGit, SiLinux,SiVite, SiHtml5, 
   SiMysql, SiPostman, SiFigma,
 } from 'react-icons/si';
 import {
-  FiShield, FiLock, FiCloud, FiCode, FiLayout,
-  FiServer, FiGitPullRequest, FiTerminal,
-  FiGlobe, FiWifi, FiTarget, FiMonitor,
+  FiShield, FiLayout,
+  FiGitPullRequest, FiTerminal,
+  FiGlobe, FiTarget, FiMonitor,
 } from 'react-icons/fi';
 import { FaJava } from 'react-icons/fa';
 import styles from './Skills.module.css';

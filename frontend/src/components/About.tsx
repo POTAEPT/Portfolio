@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
-import { FiCode, FiShield, FiServer, FiZap } from 'react-icons/fi';
+// import { FiCode, FiShield, FiServer, FiZap } from 'react-icons/fi';
 import styles from './About.module.css';
 
-const INTERESTS = [
-  { icon: <FiCode size={18} />, label: 'Clean Architecture' },
-  { icon: <FiShield size={18} />, label: 'AppSec & Pentesting' },
-  { icon: <FiServer size={18} />, label: 'Cloud-Native Systems' },
-  { icon: <FiZap size={18} />, label: 'Performance Engineering' },
-];
+// const INTERESTS = [
+//   { icon: <FiCode size={18} />, label: 'Clean Architecture' },
+//   { icon: <FiShield size={18} />, label: 'AppSec & Pentesting' },
+//   { icon: <FiServer size={18} />, label: 'Cloud-Native Systems' },
+//   { icon: <FiZap size={18} />, label: 'Performance Engineering' },
+// ];
 
 const TIMELINE = [
   {
