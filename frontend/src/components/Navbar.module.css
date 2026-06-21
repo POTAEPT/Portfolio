@@ -1,0 +1,210 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--port-transition),
+              border-color var(--port-transition),
+              box-shadow var(--port-transition);
+}
+
+.navbar.scrolled {
+  background-color: var(--port-nav-bg);
+  border-color: var(--port-nav-border);
+  box-shadow: var(--port-shadow-sm);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.inner {
+  max-width: var(--port-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: var(--port-nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
+  font-family: var(--port-font-mono);
+  letter-spacing: -0.02em;
+}
+
+.logoPrompt {
+  color: var(--port-accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.logoText {
+  color: var(--port-text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color var(--port-transition);
+}
+
+.logo:hover .logoText {
+  color: var(--port-accent);
+}
+
+/* ── Desktop Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navLink {
+  position: relative;
+  padding: 0.35rem 0.75rem;
+  color: var(--port-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color var(--port-transition), background-color var(--port-transition);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background-color: var(--port-accent);
+  border-radius: 1px;
+  transition: transform var(--port-transition);
+}
+
+.navLink:hover {
+  color: var(--port-text-primary);
+  background-color: var(--port-border-subtle);
+}
+
+.navLink.active {
+  color: var(--port-accent);
+}
+
+.navLink.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ── Controls ── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--port-border);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--port-text-secondary);
+  cursor: pointer;
+  transition: color var(--port-transition),
+              border-color var(--port-transition),
+              background-color var(--port-transition);
+}
+
+.themeToggle:hover {
+  color: var(--port-accent);
+  border-color: var(--port-accent);
+  background-color: var(--port-accent-glow);
+}
+
+.themeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--port-border);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--port-text-secondary);
+  cursor: pointer;
+  transition: color var(--port-transition), border-color var(--port-transition);
+}
+
+.menuToggle:hover {
+  color: var(--port-text-primary);
+  border-color: var(--port-text-muted);
+}
+
+/* ── Mobile Nav ── */
+.mobileNav {
+  overflow: hidden;
+  background-color: var(--port-nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--port-border);
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.5rem 1rem;
+  gap: 0.25rem;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  color: var(--port-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color var(--port-transition), background-color var(--port-transition);
+}
+
+.mobileLink:hover,
+.mobileLink.active {
+  color: var(--port-accent);
+  background-color: var(--port-accent-glow);
+}
+
+.mobileLinkNum {
+  font-family: var(--port-font-mono);
+  font-size: 0.75rem;
+  color: var(--port-accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .nav {
+    display: none;
+  }
+  .menuToggle {
+    display: flex;
+  }
+}

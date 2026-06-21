@@ -1,0 +1,191 @@
+.contact {
+  padding: 6rem 1.5rem 3rem;
+  background-color: var(--port-bg-primary);
+}
+
+.inner {
+  max-width: var(--port-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--port-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--port-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.labelNum {
+  color: var(--port-accent);
+}
+
+/* ── Hero block ── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 580px;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--port-text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.sub {
+  font-size: 1rem;
+  color: var(--port-text-secondary);
+  line-height: 1.75;
+}
+
+.emailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.75rem 1.6rem;
+  background-color: var(--port-accent);
+  color: var(--port-bg-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid var(--port-accent);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.emailBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--port-accent-glow);
+}
+
+/* ── Social links grid ── */
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.linkCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background-color: var(--port-bg-card);
+  border: 1px solid var(--port-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--port-transition),
+              box-shadow var(--port-transition),
+              background-color var(--port-transition);
+}
+
+.linkCard:hover {
+  border-color: var(--port-accent);
+  background-color: var(--port-bg-secondary);
+  box-shadow: 0 0 0 3px var(--port-accent-glow);
+}
+
+.linkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: var(--port-accent-dim);
+  color: var(--port-accent);
+  flex-shrink: 0;
+  transition: background-color var(--port-transition);
+}
+
+.linkInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.linkLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--port-text-primary);
+}
+
+.linkDesc {
+  font-size: 0.78rem;
+  color: var(--port-text-muted);
+  font-family: var(--port-font-mono);
+}
+
+.linkArrow {
+  color: var(--port-text-muted);
+  flex-shrink: 0;
+  transition: color var(--port-transition), transform 0.18s ease;
+}
+
+.linkCard:hover .linkArrow {
+  color: var(--port-accent);
+  transform: translate(2px, -2px);
+}
+
+/* ── Footer bar ── */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--port-border-subtle);
+}
+
+.barLogo {
+  display: flex;
+  align-items: center;
+  font-family: var(--port-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--port-accent);
+}
+
+.barCopy {
+  font-size: 0.8rem;
+  color: var(--port-text-muted);
+  text-align: center;
+}
+
+.backTop {
+  font-size: 0.8rem;
+  font-family: var(--port-font-mono);
+  color: var(--port-text-muted);
+  text-decoration: none;
+  transition: color var(--port-transition);
+}
+
+.backTop:hover {
+  color: var(--port-accent);
+}
+
+@media (max-width: 640px) {
+  .links {
+    grid-template-columns: 1fr;
+  }
+  .bar {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
