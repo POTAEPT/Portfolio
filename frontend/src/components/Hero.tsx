@@ -70,7 +70,7 @@ function useTerminalAnim() {
   return { visibleLines, partialCmd, done };
 }
 
-const ROLES = ['Full Stack Developer', 'DevOps',];
+const ROLES = ['Full Stack Developer', 'Cybersecurity','DevOps',];
 
 export function Hero() {
   const { visibleLines, partialCmd, done } = useTerminalAnim();
