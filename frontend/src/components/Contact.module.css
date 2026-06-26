@@ -73,7 +73,7 @@
 /* ── Social links grid ── */
 .links {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 1rem;
 }
 
@@ -125,7 +125,8 @@
 }
 
 .linkDesc {
-  font-size: 0.78rem;
+  
+  font-size: 0.65rem;
   color: var(--port-text-muted);
   font-family: var(--port-font-mono);
 }

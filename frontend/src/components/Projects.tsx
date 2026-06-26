@@ -19,7 +19,7 @@ const PROJECTS: Project[] = [
     description: 'Offline-first P2P disaster management platform',
     longDesc:
       'An offline-first, peer-to-peer (P2P) platform allowing victims to broadcast SOS signals without a central server. Integrates Ethereum Smart Contracts for direct, fee-free financial aid from donors to victims.',
-    tags: ['React', 'TypeScript', 'CSS', 'Ethereum', 'Smart Contracts', 'P2P'],
+    tags: ['React', 'TypeScript', 'CSS', 'Ethereum', 'Smart Contracts', 'P2P', 'WEB3'],
     icon: <FiShare2 size={22} />,
     github: 'https://github.com/POTAEPT/ReliefMesh-UIAteam',
     highlight: true, 
@@ -29,7 +29,7 @@ const PROJECTS: Project[] = [
     description: 'Decentralized floating infrastructure network',
     longDesc:
       'Leveraging ESP-NOW combined with Distributed Ledger Technology (DLT) for floating infrastructure. Establishes emergency communication channels and explores digital assets for SROI and Green Development.',
-    tags: ['C++', 'Arduino', 'ESP-NOW', 'Blockchain'],
+    tags: ['C++', 'Arduino', 'ESP-NOW', 'WEB3'],
     icon: <FiCpu size={22} />,
     github: 'https://github.com/POTAEPT/Web3-Student-Club-Showcase',
   },

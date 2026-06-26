@@ -22,6 +22,7 @@ const LINKS = [
     icon: <FiMail size={22} />,
     desc: 'natthawutlaeme@gmail.com',
   },
+  
 ];
 
 export function Contact() {
@@ -101,7 +102,7 @@ export function Contact() {
             &nbsp;potae.dev
           </span>
           <span className={styles.barCopy}>
-            © {new Date().getFullYear()} Natthawut Laeme. Built with React &amp; Motion.
+            © {new Date().getFullYear()} Natthawut Laeme.
           </span>
           <a
             href="#home"
