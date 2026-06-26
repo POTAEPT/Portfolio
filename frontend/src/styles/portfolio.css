@@ -40,7 +40,7 @@
   --port-cyan:          #0891b2;
 
   /* Terminal */
-  --port-term-text:     #0d1117;
+ --port-term-prompt:   #007acc;
   --port-term-dim:      #57606a;
   --port-term-bg:       #f6f8fa;
   --port-term-border:   #d0d7de;
@@ -88,18 +88,18 @@
   --port-text-muted:    #6e7681;
   --port-text-inverse:  #0d1117;
 
-  /* Accent — ใช้ฟ้าสดใสขึ้นเล็กน้อยเพื่อให้ตัดกับพื้นหลังมืด */
-  --port-accent:        #38bdf8; 
-  --port-accent-dim:    #162a36;
-  --port-accent-glow:   rgba(56, 189, 248, 0.15);
+  /* Accent */
+  --port-accent:        #007acc;
+  --port-accent-dim:    #162820;
+  --port-accent-glow:   rgba(63, 185, 80, 0.18);
 
   /* Secondary accent */
-  --port-blue:          #38bdf8;
-  --port-purple:        #b490f8;
-  --port-cyan:          #22d3ee;
+  --port-blue:          #58a6ff;
+  --port-purple:        #bc8cff;
+  --port-cyan:          #39c5cf;
 
   /* Terminal */
-  --port-term-prompt:   #38bdf8;
+  --port-term-prompt:   #007acc;
   --port-term-text:     #e6edf3;
   --port-term-dim:      #8b949e;
   --port-term-bg:       #010409;
