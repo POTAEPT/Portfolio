@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { FaGithub} from 'react-icons/fa';
-import { FiArrowRight, FiMail, FiTerminal } from 'react-icons/fi';
+import { FiArrowRight, FiMail, FiTerminal, FiDownload } from 'react-icons/fi';
 import styles from './Hero.module.css';
 
 /* Terminal typing animation data */
@@ -165,6 +165,16 @@ export function Hero() {
               }}
             >
               <FiMail size={16} /> Get in Touch
+            </a>
+            
+             <a
+              href="/Resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnSecondary}
+            >
+              <FiDownload size={16} /> Resume
             </a>
           </motion.div>
 
