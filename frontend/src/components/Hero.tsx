@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { FaGithub} from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FiArrowRight, FiMail, FiTerminal, FiDownload } from 'react-icons/fi';
 import styles from './Hero.module.css';
 
-/* Terminal typing animation data */
+// ======================================================================
+// 1. DATA & CONSTANTS
+// ======================================================================
+const ROLES = ['Full Stack Developer', 'Cybersecurity', 'DevOps'];
+
 const TERMINAL_SCRIPT = [
   { type: 'cmd',    text: 'whoami' },
   { type: 'output', text: 'potae — fullstack' },
@@ -17,9 +21,32 @@ const TERMINAL_SCRIPT = [
   { type: 'output', text: '✓ Open to new opportunities' },
 ];
 
-const CHAR_SPEED = 38;   // ms per character for command lines
-const LINE_DELAY = 420;  // ms delay between lines
+const CHAR_SPEED = 38;   
+const LINE_DELAY = 420;  
 
+// ======================================================================
+// 2. ANIMATION VARIANTS
+// ======================================================================
+const motionVariants = {
+  container: {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 as const } },
+  },
+  item: {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] as const } },
+  },
+  terminal: {
+    hidden: { opacity: 0, x: 40 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.65, delay: 0.3, ease: [0.4, 0, 0.2, 1] as const } },
+  }
+};
+
+// ======================================================================
+// 3. CUSTOM HOOKS & SUB-COMPONENTS
+// ======================================================================
+
+// Hook สำหรับจัดการ Logic การพิมพ์ข้อความใน Terminal
 function useTerminalAnim() {
   const [visibleLines, setVisibleLines] = useState<{ type: string; text: string }[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
@@ -44,7 +71,6 @@ function useTerminalAnim() {
       return () => clearTimeout(timer);
     }
 
-    /* Animate command character by character */
     if (currentChar < line.text.length) {
       const timer = setTimeout(() => {
         setCurrentChar(c => c + 1);
@@ -60,20 +86,71 @@ function useTerminalAnim() {
     }
   }, [currentLine, currentChar, done]);
 
-  const partialCmd =
-    !done &&
-    currentLine < TERMINAL_SCRIPT.length &&
-    TERMINAL_SCRIPT[currentLine].type === 'cmd'
+  const partialCmd = !done && currentLine < TERMINAL_SCRIPT.length && TERMINAL_SCRIPT[currentLine].type === 'cmd'
       ? TERMINAL_SCRIPT[currentLine].text.slice(0, currentChar)
       : null;
 
   return { visibleLines, partialCmd, done };
 }
 
-const ROLES = ['Full Stack Developer', 'Cybersecurity','DevOps',];
-
-export function Hero() {
+// แยกส่วนแสดงผล Terminal
+function TerminalWindow() {
   const { visibleLines, partialCmd, done } = useTerminalAnim();
+
+  return (
+    <motion.div
+      className={styles.terminal}
+      variants={motionVariants.terminal}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className={styles.termHeader}>
+        <span className={styles.dot} style={{ backgroundColor: '#ff5f57' }} />
+        <span className={styles.dot} style={{ backgroundColor: '#febc2e' }} />
+        <span className={styles.dot} style={{ backgroundColor: '#28c840' }} />
+        <span className={styles.termTitle}>
+          <FiTerminal size={12} />
+          &nbsp;potae@portfolio: ~
+        </span>
+      </div>
+
+      <div className={styles.termBody}>
+        {visibleLines.map((line, i) => (
+          <div key={i} className={styles.termLine}>
+            {line.type === 'cmd' && (
+              <>
+                <span className={styles.termPrompt}>{'$ '}</span>
+                <span className={styles.termCmd}>{line.text}</span>
+              </>
+            )}
+            {line.type === 'output' && <span className={styles.termOut}>{line.text}</span>}
+            {line.type === 'blank' && <br />}
+          </div>
+        ))}
+
+        {partialCmd !== null && (
+          <div className={styles.termLine}>
+            <span className={styles.termPrompt}>{'$ '}</span>
+            <span className={styles.termCmd}>{partialCmd}</span>
+            <span className={styles.cursor}>█</span>
+          </div>
+        )}
+
+        {done && (
+          <div className={styles.termLine}>
+            <span className={styles.termPrompt}>{'$ '}</span>
+            <span className={styles.cursor}>█</span>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+// ======================================================================
+// 4. MAIN COMPONENT
+// ======================================================================
+export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [roleVisible, setRoleVisible] = useState(true);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -91,101 +168,61 @@ export function Hero() {
     };
   }, []);
 
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.12 as const } },
-  };
-
-  const itemVariants = {
-    hidden:  { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] as const } },
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section id="home" className={styles.hero}>
-      {/* Subtle grid background */}
       <div className={styles.grid} aria-hidden="true" />
 
-
-
       <div className={styles.inner}>
-        {/* ── Left: intro text ── */}
+        
+        {/* ── Left: Intro Text ── */}
         <motion.div
           className={styles.content}
-          variants={containerVariants}
+          variants={motionVariants.container}
           initial="hidden"
           animate="visible"
         >
-                  {/* Avatar Image */}
-          <motion.div className={styles.avatarWrapper} variants={itemVariants}>
-            <img 
-              src="https://github.com/POTAEPT.png" 
-              alt="Natthawut Laeme" 
-              className={styles.avatar} 
-            />
+          <motion.div className={styles.avatarWrapper} variants={motionVariants.item}>
+            <img src="https://github.com/POTAEPT.png" alt="Natthawut Laeme" className={styles.avatar} />
           </motion.div>
-          <motion.p className={styles.greeting} variants={itemVariants}>
+
+          <motion.p className={styles.greeting} variants={motionVariants.item}>
             <span className={styles.promptChar}>{'>_'}</span>
             &nbsp;Hello, World!
           </motion.p>
 
-          <motion.h1 className={styles.name} variants={itemVariants}>
+          <motion.h1 className={styles.name} variants={motionVariants.item}>
             I'm <span className={styles.nameHighlight}>Natthawut Laeme (Potae)</span>
           </motion.h1>
 
-          <motion.div className={styles.roleRow} variants={itemVariants}>
-            <span
-              className={`${styles.role} ${roleVisible ? styles.roleVisible : styles.roleHidden}`}
-            >
+          <motion.div className={styles.roleRow} variants={motionVariants.item}>
+            <span className={`${styles.role} ${roleVisible ? styles.roleVisible : styles.roleHidden}`}>
               {ROLES[roleIndex]}
             </span>
           </motion.div>
 
-          <motion.p className={styles.tagline} variants={itemVariants}>
+          <motion.p className={styles.tagline} variants={motionVariants.item}>
             Coding is a fun and never-ending learning journey. I am currently enjoying developing various projects while mastering new skills at the same time.
           </motion.p>
 
-          <motion.div className={styles.cta} variants={itemVariants}>
-            <a
-              href="#projects"
-              className={styles.btnPrimary}
-              onClick={e => {
-                e.preventDefault();
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
+          <motion.div className={styles.cta} variants={motionVariants.item}>
+            <a href="#projects" className={styles.btnPrimary} onClick={e => handleScroll(e, 'projects')}>
               View Projects <FiArrowRight size={16} />
             </a>
-            <a
-              href="#contact"
-              className={styles.btnSecondary}
-              onClick={e => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
+            <a href="#contact" className={styles.btnSecondary} onClick={e => handleScroll(e, 'contact')}>
               <FiMail size={16} /> Get in Touch
             </a>
-            
-             <a
-              href="/Resume.pdf"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnSecondary}
-            >
+            <a href="/Resume.pdf" download target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
               <FiDownload size={16} /> Resume
             </a>
           </motion.div>
 
-          <motion.div className={styles.socials} variants={itemVariants}>
-            <a
-              href="https://github.com/POTAEPT"
-              target="https://github.com/POTAEPT"
-              rel="noopener noreferrer"
-              className={styles.socialLink}
-              aria-label="GitHub"
-            >
+          <motion.div className={styles.socials} variants={motionVariants.item}>
+            <a href="https://github.com/POTAEPT" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="GitHub">
               <FaGithub size={20} />
             </a>
             <span className={styles.socialDivider} />
@@ -196,59 +233,9 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ── Right: terminal window ── */}
-        <motion.div
-          className={styles.terminal}
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.65, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        >
-          {/* Terminal chrome */}
-          <div className={styles.termHeader}>
-            <span className={styles.dot} style={{ backgroundColor: '#ff5f57' }} />
-            <span className={styles.dot} style={{ backgroundColor: '#febc2e' }} />
-            <span className={styles.dot} style={{ backgroundColor: '#28c840' }} />
-            <span className={styles.termTitle}>
-              <FiTerminal size={12} />
-              &nbsp;potae@portfolio: ~
-            </span>
-          </div>
-
-          {/* Terminal body */}
-          <div className={styles.termBody}>
-            {visibleLines.map((line, i) => (
-              <div key={i} className={styles.termLine}>
-                {line.type === 'cmd' && (
-                  <>
-                    <span className={styles.termPrompt}>{'$ '}</span>
-                    <span className={styles.termCmd}>{line.text}</span>
-                  </>
-                )}
-                {line.type === 'output' && (
-                  <span className={styles.termOut}>{line.text}</span>
-                )}
-                {line.type === 'blank' && <br />}
-              </div>
-            ))}
-
-            {/* Partially-typed current command */}
-            {partialCmd !== null && (
-              <div className={styles.termLine}>
-                <span className={styles.termPrompt}>{'$ '}</span>
-                <span className={styles.termCmd}>{partialCmd}</span>
-                <span className={styles.cursor}>█</span>
-              </div>
-            )}
-
-            {/* Idle cursor when done */}
-            {done && (
-              <div className={styles.termLine}>
-                <span className={styles.termPrompt}>{'$ '}</span>
-                <span className={styles.cursor}>█</span>
-              </div>
-            )}
-          </div>
-        </motion.div>
+        {/* ── Right: Terminal Window ── */}
+        <TerminalWindow />
+        
       </div>
 
       {/* Scroll indicator */}
